@@ -1,0 +1,23 @@
+{
+  "name": "blog",
+  "version": "0.0.1",
+  "description": "A blog .",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/solodynamo/blog.git"
+  },
+  "author": "solodynamo <bittuf3@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/solodynamo/blog/issues"
+  },
+  "homepage": "https://github.com/solodynamo/blog#readme",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "solodynamo",
+    "blog"
+  ]
+}
