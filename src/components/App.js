@@ -40,8 +40,8 @@ class App extends React.Component {
     this.setState({ newArticleForm: false });
   }
 
-  setCurrentArticle = (articleId) => {
-    api.getArticle(articleId).then(article => {
+  setCurrentArticle = (article) => {
+
       this.setState((prevState) => ({
         data: {
           ...prevState.data,
@@ -49,7 +49,6 @@ class App extends React.Component {
         },
         newArticleForm: false
       }));
-    });
   }
 
   showNewArticleForm = (event) => {

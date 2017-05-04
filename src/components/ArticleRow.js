@@ -4,7 +4,8 @@ class ArticleRow extends React.Component {
   handleClick = (event) => {
     event.preventDefault();
     console.log("clickin a row");
-    this.props.onClick(this.props.id);
+    console.log(this.props);
+    this.props.onClick(this.props);
   };
   render() {
     return (
