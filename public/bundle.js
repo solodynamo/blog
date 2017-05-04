@@ -22431,7 +22431,6 @@
 	  _createClass(App, [{
 	    key: 'componentDidMount',
 	    value: function componentDidMount() {
-	      debugger;
 	      this.getArticle();
 	    }
 	  }, {
@@ -22440,7 +22439,6 @@
 	      var _this2 = this;
 	
 	      _container2.default.api.getArticleList().then(function (articleList) {
-	        debugger;
 	        console.log(articleList);
 	        _this2.setState(function (prevState) {
 	          return {

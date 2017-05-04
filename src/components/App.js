@@ -18,13 +18,11 @@ class App extends React.Component {
   };
 
   componentDidMount() {
-    debugger;
     this.getArticle();
   }
 
   getArticle() {
     Api.api.getArticleList().then(articleList => {
-      debugger;
       console.log(articleList);
       this.setState((prevState) => ({
         data: {
