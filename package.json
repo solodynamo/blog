@@ -14,7 +14,6 @@
   },
   "homepage": "https://github.com/solodynamo/blog#readme",
   "scripts": {
-    "nodemon": "nodemon --exec babel-node server.js --ignore public/",
     "webpack": "webpack -wd"
   },
     "dependencies": {

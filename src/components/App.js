@@ -63,7 +63,7 @@ class App extends React.Component {
   render() {
     return (
       <div className="App">
-        <h2 id="header">Solodynamo says...</h2> 
+        <h2 id="header">Solodynamo says...</h2>
 
         <div id="left">
           <h3>Article List</h3>
