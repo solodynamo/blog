@@ -1,7 +1,6 @@
 var axios = require('axios');
 var container = require('./api');
 var moment = require('moment');
-var Base64 = require('./encoding');
 
 
 function getArticleList() {
