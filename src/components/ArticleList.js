@@ -3,6 +3,10 @@ import React from 'react';
 import ArticleRow from './ArticleRow';
 
 class ArticleList extends React.Component {
+
+  componentDidMount() {
+    console.log(this.props);
+  }
   render() {
     const { articles, onArticleClick } = this.props;
     console.log(onArticleClick);

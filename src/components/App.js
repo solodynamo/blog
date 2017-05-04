@@ -4,7 +4,8 @@ import ArticleList from './ArticleList';
 import Article from './Article';
 import NewArticleForm from './NewArticleForm';
 
-import * as api from '../api';
+// import * as api from '../api';
+import Api from '../container';
 
 class App extends React.Component {
 
@@ -17,31 +18,39 @@ class App extends React.Component {
   };
 
   componentDidMount() {
-    api.getArticleList().then(articleList => {
+    debugger;
+    this.getArticle();
+  }
+
+  getArticle() {
+    Api.api.getArticleList().then(articleList => {
+      debugger;
+      console.log(articleList);
       this.setState((prevState) => ({
         data: {
           ...prevState.data,
-          articles: articleList
+          articles: articleList[0]
         },
       }));
     });
+    console.log(this.state);
   }
 
   cancelFormSubmission = (event) => {
     this.setState({ newArticleForm: false });
-    }
+  }
 
   setCurrentArticle = (articleId) => {
     api.getArticle(articleId).then(article => {
       this.setState((prevState) => ({
         data: {
           ...prevState.data,
-          currentArticle: article,
+          currentArticle: article
         },
         newArticleForm: false
       }));
     });
-  };
+  }
 
   showNewArticleForm = (event) => {
     event.preventDefault();
@@ -49,16 +58,10 @@ class App extends React.Component {
   }
 
   addArticle = (articleInput) => {
-    api.addArticle(articleInput).then(newArticle => {
-      this.setState((prevState) => ({
-        data: {
-          articles: [...prevState.data.articles, newArticle],
-          currentArticle: newArticle,
-        },
-        newArticleForm: false
-      }));
+    Api.api.addArticle(articleInput).then(res => {
+      console.log(res);
     });
-  };
+  }
 
   render() {
     return (

@@ -16,11 +16,13 @@
   "scripts": {
     "webpack": "webpack -wd"
   },
-    "dependencies": {
-    "json-loader": "^0.5.4",
-    "node-sass-middleware": "^0.9.8",
+  "dependencies": {
+    "axios": "^0.16.1",
     "body-parser": "^1.16.0",
     "express": "^4.14.0",
+    "json-loader": "^0.5.4",
+    "moment": "^2.18.1",
+    "node-sass-middleware": "^0.9.8",
     "react": "^15.4.2",
     "react-dom": "^15.4.2"
   },

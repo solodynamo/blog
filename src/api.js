@@ -1,4 +1,4 @@
-const rawData = {
+ const rawData = {
     articles: [{
         id: 'Buffers In NodeJS',
         title: 'Buffers In NodeJS',
@@ -84,7 +84,8 @@ let appData = {
     articles: []
 };
 
-export const getArticleList = () => {
+
+ const getArticleList = () => {
     appData.articles = rawData.articles.reduce((acc, article) => {
         acc.push({ id: article.id, title: article.title, date: article.date });
         return acc;
@@ -93,12 +94,12 @@ export const getArticleList = () => {
     return Promise.resolve(deepCopy(appData.articles));
 };
 
-export const getArticle = (articleId) => {
+ const getArticle = (articleId) => {
     appData.currentArticle = rawData.articles.find(article => article.id === articleId);
     return Promise.resolve(deepCopy(appData.currentArticle));
 };
 
-export const addArticle = (articleInfo) => {
+const addArticle = (articleInfo) => {
     const newArticle = Object.assign({}, articleInfo, {
         id: articleInfo.title.toLowerCase().replace(/[^a-z]+/, '-'),
         date: new Date().toString(),
@@ -106,4 +107,12 @@ export const addArticle = (articleInfo) => {
     rawData.articles.push(newArticle);
     appData.currentArticle = newArticle;
     return Promise.resolve(deepCopy(appData.currentArticle));
+};
+
+
+exports.api = {
+  rawData: rawData,
+  getArticleList: getArticleList,
+  getArticle: getArticle,
+  addArticle: addArticle
 };
