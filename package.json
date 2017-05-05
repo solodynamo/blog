@@ -24,6 +24,7 @@
     "lodash": "^4.17.4",
     "moment": "^2.18.1",
     "node-sass-middleware": "^0.9.8",
+    "randomstring": "^1.1.5",
     "react": "^15.4.2",
     "react-dom": "^15.4.2"
   },
