@@ -15,7 +15,7 @@ class ArticleList extends React.Component {
         {articles.map(article =>
           <ArticleRow
             onClick={onArticleClick}
-            key={article.id}
+            key={article.aid}
             {...article}
           />
         )}

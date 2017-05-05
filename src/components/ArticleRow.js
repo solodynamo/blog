@@ -10,7 +10,7 @@ class ArticleRow extends React.Component {
   render() {
     return (
       <div className="article-row link" onClick={this.handleClick}>
-        <div className="article-title">{this.props.author}</div>
+        <div className="article-title">{this.props.title}</div>
         <div className="article-date">{this.props.pub_date}</div>
       </div>
     );

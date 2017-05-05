@@ -4,7 +4,7 @@ class Author extends React.Component {
   render() {
     return (
       <div className="article-author">
-        By: <a href={this.props.website}>{this.props.firstName} {this.props.lastName}</a>
+        By: <a href={this.props.website}>{this.props.author}</a>
       </div>
     );
   }

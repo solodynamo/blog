@@ -22554,7 +22554,7 @@
 	        articles.map(function (article) {
 	          return _react2.default.createElement(_ArticleRow2.default, _extends({
 	            onClick: onArticleClick,
-	            key: article.id
+	            key: article.aid
 	          }, article));
 	        })
 	      );
@@ -22624,7 +22624,7 @@
 	        _react2.default.createElement(
 	          "div",
 	          { className: "article-title" },
-	          this.props.author
+	          this.props.title
 	        ),
 	        _react2.default.createElement(
 	          "div",
@@ -22696,15 +22696,14 @@
 	        _react2.default.createElement(
 	          'h3',
 	          null,
-	          this.props.author
+	          this.props.title
 	        ),
 	        _react2.default.createElement(
 	          'div',
 	          { className: 'article-date' },
 	          this.props.pub_date
 	        ),
-	        '// ',
-	        _react2.default.createElement(_Author2.default, this.props.author),
+	        _react2.default.createElement(_Author2.default, this.props),
 	        _react2.default.createElement(
 	          'div',
 	          { className: 'article-body' },
@@ -22765,9 +22764,7 @@
 	        _react2.default.createElement(
 	          "a",
 	          { href: this.props.website },
-	          this.props.firstName,
-	          " ",
-	          this.props.lastName
+	          this.props.author
 	        )
 	      );
 	    }

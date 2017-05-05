@@ -9,11 +9,11 @@ class Article extends React.Component {
     }
     return (
       <div id="current-article">
-        <h3>{this.props.author}</h3>
+        <h3>{this.props.title}</h3>
         <div className="article-date">
           {this.props.pub_date}
         </div>
-        // <Author {...this.props.author} />
+        <Author {...this.props} />
         <div className="article-body">
           {this.props.content}
         </div>

@@ -35,8 +35,6 @@ function addArticle (articleInfo) {
     .then(function(response) {
       return response;
   });
-
-
 };
 
 exports.api = {
