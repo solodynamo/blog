@@ -6,6 +6,7 @@ import NewArticleForm from './NewArticleForm';
 
 // import * as api from '../api';
 import Api from '../container';
+import transform from '../utilities/objectGenerator';
 
 class App extends React.Component {
 
@@ -55,9 +56,17 @@ class App extends React.Component {
   }
 
   addArticle = (articleInput) => {
+    let newArticle = transform(articleInput);
     Api.api.addArticle(articleInput).then(res => {
       console.log(res);
     });
+    this.setState((prevState) => ({
+        data: {
+          articles: [...prevState.data.articles, newArticle],
+          currentArticle: newArticle,
+        },
+        newArticleForm: false,
+      }));
   }
 
   render() {

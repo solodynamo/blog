@@ -1,7 +1,6 @@
 var axios = require('axios');
 var container = require('./api');
-var moment = require('moment');
-var hash = require('randomstring');
+var transform = require('./utilities/objectGenerator');
 
 
 function getArticleList() {
@@ -19,13 +18,7 @@ return axios({
 }
 
 function addArticle (articleInfo) {
-  var obj = {
-    author: articleInfo.author.firstName +' '+ articleInfo.author.lastName,
-    arid: hash.generate(10),
-    title: articleInfo.title,
-    content: articleInfo.body,
-    pub_date: moment().format('MMMM Do YYYY, h:mm:ss a')
-  }
+  var obj = transform(articleInfo);
   console.log(obj);
   return axios({
     method:'post',
