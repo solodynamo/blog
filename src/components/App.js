@@ -7,6 +7,7 @@ import NewArticleForm from './NewArticleForm';
 // import * as api from '../api';
 import Api from '../container';
 import transform from '../utilities/objectGenerator';
+var isProfane = require('../utilities/objectValidator');
 
 class App extends React.Component {
 
@@ -15,7 +16,8 @@ class App extends React.Component {
       articles: [],
       currentArticle: {}
     },
-    newArticleForm: false
+    newArticleForm: false,
+    isProfane: false
   };
 
   componentDidMount() {
@@ -46,7 +48,8 @@ class App extends React.Component {
           ...prevState.data,
           currentArticle: article
         },
-        newArticleForm: false
+        newArticleForm: false,
+        isProfane: false
       }));
   }
 
@@ -57,16 +60,23 @@ class App extends React.Component {
 
   addArticle = (articleInput) => {
     let newArticle = transform(articleInput);
-    Api.api.addArticle(articleInput).then(res => {
-      console.log(res);
-    });
-    this.setState((prevState) => ({
-        data: {
-          articles: [...prevState.data.articles, newArticle],
-          currentArticle: newArticle,
-        },
-        newArticleForm: false,
-      }));
+      if(isProfane(newArticle)) {
+        Api.api.addArticle(articleInput).then(res => {
+          console.log(res);
+        });
+        this.setState((prevState) => ({
+            data: {
+              articles: [...prevState.data.articles, newArticle],
+              currentArticle: newArticle,
+            },
+            newArticleForm: false,
+            isProfane: false
+        }));
+      } else {
+        this.setState((prevState) => ({
+            isProfane: true
+        }));
+      }
   }
 
   render() {
@@ -89,7 +99,7 @@ class App extends React.Component {
         <div id="right">
           {
             this.state.newArticleForm ?
-              <NewArticleForm addArticle={this.addArticle} cancelForm= {this.cancelFormSubmission}/> :
+              <NewArticleForm addArticle={this.addArticle} cancelForm= {this.cancelFormSubmission} isBad= {this.state.isProfane}/> :
               <Article {...this.state.data.currentArticle} />
 
           }

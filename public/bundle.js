@@ -22392,6 +22392,8 @@
 	// import * as api from '../api';
 	
 	
+	var isProfane = __webpack_require__(/*! ../utilities/objectValidator */ 398);
+	
 	var App = function (_React$Component) {
 	  _inherits(App, _React$Component);
 	
@@ -22411,7 +22413,8 @@
 	        articles: [],
 	        currentArticle: {}
 	      },
-	      newArticleForm: false
+	      newArticleForm: false,
+	      isProfane: false
 	    }, _this.cancelFormSubmission = function (event) {
 	      _this.setState({ newArticleForm: false });
 	    }, _this.setCurrentArticle = function (article) {
@@ -22421,7 +22424,8 @@
 	          data: _extends({}, prevState.data, {
 	            currentArticle: article
 	          }),
-	          newArticleForm: false
+	          newArticleForm: false,
+	          isProfane: false
 	        };
 	      });
 	    }, _this.showNewArticleForm = function (event) {
@@ -22429,18 +22433,27 @@
 	      _this.setState({ newArticleForm: true });
 	    }, _this.addArticle = function (articleInput) {
 	      var newArticle = (0, _objectGenerator2.default)(articleInput);
-	      _container2.default.api.addArticle(articleInput).then(function (res) {
-	        console.log(res);
-	      });
-	      _this.setState(function (prevState) {
-	        return {
-	          data: {
-	            articles: [].concat(_toConsumableArray(prevState.data.articles), [newArticle]),
-	            currentArticle: newArticle
-	          },
-	          newArticleForm: false
-	        };
-	      });
+	      if (isProfane(newArticle)) {
+	        _container2.default.api.addArticle(articleInput).then(function (res) {
+	          console.log(res);
+	        });
+	        _this.setState(function (prevState) {
+	          return {
+	            data: {
+	              articles: [].concat(_toConsumableArray(prevState.data.articles), [newArticle]),
+	              currentArticle: newArticle
+	            },
+	            newArticleForm: false,
+	            isProfane: false
+	          };
+	        });
+	      } else {
+	        _this.setState(function (prevState) {
+	          return {
+	            isProfane: true
+	          };
+	        });
+	      }
 	    }, _temp), _possibleConstructorReturn(_this, _ret);
 	  }
 	
@@ -22498,7 +22511,7 @@
 	        _react2.default.createElement(
 	          'div',
 	          { id: 'right' },
-	          this.state.newArticleForm ? _react2.default.createElement(_NewArticleForm2.default, { addArticle: this.addArticle, cancelForm: this.cancelFormSubmission }) : _react2.default.createElement(_Article2.default, this.state.data.currentArticle)
+	          this.state.newArticleForm ? _react2.default.createElement(_NewArticleForm2.default, { addArticle: this.addArticle, cancelForm: this.cancelFormSubmission, isBad: this.state.isProfane }) : _react2.default.createElement(_Article2.default, this.state.data.currentArticle)
 	        )
 	      );
 	    }
@@ -22860,10 +22873,19 @@
 	      return _react2.default.createElement(
 	        'div',
 	        { id: 'new-article-form' },
-	        _react2.default.createElement(
+	        this.props.isBad ? _react2.default.createElement(
+	          'div',
+	          { 'class': 'alert alert-danger', role: 'alert' },
+	          _react2.default.createElement(
+	            'strong',
+	            null,
+	            'Warning!'
+	          ),
+	          'Better check the words before submitting'
+	        ) : _react2.default.createElement(
 	          'h3',
 	          null,
-	          'New Article'
+	          '"New Article"'
 	        ),
 	        _react2.default.createElement(_CrossButton2.default, { onClick: this.handleCloseForm }),
 	        _react2.default.createElement(
