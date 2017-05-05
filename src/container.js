@@ -1,6 +1,7 @@
 var axios = require('axios');
 var container = require('./api');
 var transform = require('./utilities/objectGenerator');
+var isProfane = require('./utilities/objectValidator');
 
 
 function getArticleList() {
@@ -19,15 +20,19 @@ return axios({
 
 function addArticle (articleInfo) {
   var obj = transform(articleInfo);
-  console.log(obj);
-  return axios({
-    method:'post',
-    url:'https://gentle-atoll-86567.herokuapp.com/api/starships',
-    data: obj
-  })
-    .then(function(response) {
-      return response;
-  });
+  if(isProfane(obj)) {
+    console.log(obj);
+    return axios({
+      method:'post',
+      url:'https://gentle-atoll-86567.herokuapp.com/api/starships',
+      data: obj
+    })
+      .then(function(response) {
+        return response;
+    });
+  } else {
+    console.log("something bad");
+  }
 };
 
 exports.api = {
