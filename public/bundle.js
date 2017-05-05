@@ -22481,7 +22481,7 @@
 	          'div',
 	          { id: 'left' },
 	          _react2.default.createElement(
-	            'h3',
+	            'h2',
 	            null,
 	            'Article List'
 	          ),

@@ -75,7 +75,7 @@ class App extends React.Component {
         <h2 id="header">Solodynamo says...</h2>
 
         <div id="left">
-          <h3>Article List</h3>
+          <h2>Article List</h2>
           <ArticleList
             articles={this.state.data.articles}
             onArticleClick={this.setCurrentArticle}
