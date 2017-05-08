@@ -22389,9 +22389,6 @@
 	
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 	
-	// import * as api from '../api';
-	
-	
 	var isProfane = __webpack_require__(/*! ../utilities/objectValidator */ 397);
 	
 	var App = function (_React$Component) {
@@ -22416,7 +22413,7 @@
 	      newArticleForm: false,
 	      isProfane: false
 	    }, _this.cancelFormSubmission = function (event) {
-	      _this.setState({ newArticleForm: false });
+	      _this.setState({ newArticleForm: false, isProfane: false });
 	    }, _this.setCurrentArticle = function (article) {
 	
 	      _this.setState(function (prevState) {
@@ -22881,11 +22878,11 @@
 	            null,
 	            'Warning!'
 	          ),
-	          'Better check the words before submitting'
+	          'What are you trying to submit \uD83D\uDE20'
 	        ) : _react2.default.createElement(
 	          'h3',
 	          null,
-	          '"New Article"'
+	          'New Article'
 	        ),
 	        _react2.default.createElement(_CrossButton2.default, { onClick: this.handleCloseForm }),
 	        _react2.default.createElement(
@@ -49347,21 +49344,22 @@
 	      title = articleObj.title;
 	
 	  var flag = true;
+	  console.log("ksfklsjflksjflkj");
 	  console.log(arid, author);
 	
-	  if (isBad.profane(arid)) {
+	  if (arid === '' || isBad.profane(arid)) {
 	    flag = false;
 	  }
-	  if (isBad.profane(author)) {
+	  if (author === '' || isBad.profane(author)) {
 	    flag = false;
 	  }
-	  if (isBad.profane(content)) {
+	  if (content === '' || isBad.profane(content)) {
 	    flag = false;
 	  }
-	  if (isBad.profane(pub_date)) {
+	  if (pub_date === '' || isBad.profane(pub_date)) {
 	    flag = false;
 	  }
-	  if (isBad.profane(title)) {
+	  if (title === '' || isBad.profane(title)) {
 	    flag = false;
 	  }
 	

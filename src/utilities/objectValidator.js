@@ -4,21 +4,22 @@ var isBad = require('swearjar');
 function isProfane(articleObj) {
   let {arid, author, content, pub_date, title} = articleObj;
   let flag = true;
+  console.log("ksfklsjflksjflkj")
   console.log(arid, author);
 
-  if(isBad.profane(arid)) {
+  if(arid === '' || isBad.profane(arid)) {
     flag = false;
   }
-  if(isBad.profane(author)) {
+  if(author === '' || isBad.profane(author)) {
     flag = false;
   }
-  if(isBad.profane(content)) {
+  if(content === '' || isBad.profane(content)) {
     flag = false;
   }
-  if(isBad.profane(pub_date)) {
+  if(pub_date === '' || isBad.profane(pub_date)) {
     flag = false;
   }
-  if(isBad.profane(title)) {
+  if(title ==='' || isBad.profane(title)) {
     flag = false;
   }
 

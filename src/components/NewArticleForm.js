@@ -24,8 +24,8 @@ class NewArticleForm extends React.Component {
       <div id="new-article-form">
       {
         this.props.isBad ?
-        <div class="alert alert-danger" role="alert"><strong>Warning!</strong>Better check the words before submitting</div>:
-          <h3>"New Article"</h3>
+        <div class="alert alert-danger" role="alert"><strong>Warning!</strong>What are you trying to submit 😠</div>:
+          <h3>New Article</h3>
       }
         <CrossButton onClick={this.handleCloseForm}/>
 

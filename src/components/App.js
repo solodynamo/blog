@@ -4,7 +4,6 @@ import ArticleList from './ArticleList';
 import Article from './Article';
 import NewArticleForm from './NewArticleForm';
 
-// import * as api from '../api';
 import Api from '../container';
 import transform from '../utilities/objectGenerator';
 var isProfane = require('../utilities/objectValidator');
@@ -38,7 +37,7 @@ class App extends React.Component {
   }
 
   cancelFormSubmission = (event) => {
-    this.setState({ newArticleForm: false });
+    this.setState({ newArticleForm: false, isProfane: false });
   }
 
   setCurrentArticle = (article) => {
