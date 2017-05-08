@@ -1,5 +1,4 @@
 var axios = require('axios');
-var container = require('./api');
 var transform = require('./utilities/objectGenerator');
 var isProfane = require('./utilities/objectValidator');
 

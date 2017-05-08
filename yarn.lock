@@ -3088,6 +3088,10 @@ react-dom@^15.4.2:
     object-assign "^4.1.0"
     prop-types "~15.5.7"
 
+react-recaptcha@^2.2.6:
+  version "2.2.6"
+  resolved "https://registry.yarnpkg.com/react-recaptcha/-/react-recaptcha-2.2.6.tgz#bb44c1948a39b37d5a41920c73db833e5d8524f9"
+
 react@^15.4.2:
   version "15.5.4"
   resolved "https://registry.yarnpkg.com/react/-/react-15.5.4.tgz#fa83eb01506ab237cdc1c8c3b1cea8de012bf047"

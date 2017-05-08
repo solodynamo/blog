@@ -27,6 +27,7 @@
     "randomstring": "^1.1.5",
     "react": "^15.4.2",
     "react-dom": "^15.4.2",
+    "react-recaptcha": "^2.2.6",
     "swearjar": "^0.2.0"
   },
   "devDependencies": {

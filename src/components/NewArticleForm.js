@@ -56,6 +56,7 @@ class NewArticleForm extends React.Component {
             rows="20"
             placeholder="Article Body"></textarea>
           <br />
+          <div className="g-recaptcha" data-sitekey="6LdNZyAUAAAAAHvG9_bC5QwRHKwG6Wn0Q1PprMrI"></div>
           <button type="submit" className="btn btn-secondary">
             Add Article
           </button>
