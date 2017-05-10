@@ -1,0 +1,74 @@
+body {
+    margin: 0;
+}
+
+#lol div {
+    flex: 1;
+}
+
+#left {
+    float: left;
+    padding-left: 1em;
+    padding-right: 1em;
+    width: 30%;
+    font-family: 'VT323', monospace;
+}
+
+#right {
+    float: left;
+    padding-left: 1em;
+    border-left: 1px solid #bbb;
+    width: 60%;
+    min-height: 100px;
+    font-family: 'VT323', monospace;
+}
+
+#header {
+    background-color: #ddd;
+    margin: 0;
+    padding: 1em;
+    margin-bottom: 1em;
+    font-family: 'VT323', monospace;
+}
+
+.article-row {
+    border-bottom: 1px dashed #ccc;
+    margin-top: 1em;
+    padding-bottom: 0.5em;
+    font-family: 'VT323', monospace;
+}
+
+.article-date {
+    font-size: 0.9em;
+    color: #666;
+    padding: 0.5em 0;
+}
+
+.article-body {
+    padding: 1em;
+    white-space: pre-line;
+    color: #333;
+}
+
+#new-article {
+    margin-top: 2em;
+}
+
+#new-article-form {
+    position: relative;
+}
+
+.cross-btn {
+  position: absolute;
+  top: 4px;
+  right: 1px;
+  cursor: pointer;
+  font-size: 19px;
+}
+
+.link {
+    cursor: pointer;
+}
+form {
+      padding: 38px;
+}
